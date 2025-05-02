@@ -1,0 +1,1 @@
+This repository analyzes spectra taken from the spectrograph at the [John J. McCarthy Observatory (JJMO)](https://www.mccarthyobservatory.org/) located in New Milford, Connecticut. The aim of this project is to produce a flux calibration curve so that science can be done using this spectrograph.
