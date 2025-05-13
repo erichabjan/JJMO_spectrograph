@@ -1,6 +1,6 @@
 import numpy as np
 from astropy.io import fits
-
+from scipy.signal import savgol_filter
 
 
 ### Function to import data as a single numpy array
@@ -49,3 +49,53 @@ def import_to_fits(path_array):
         hdulist.append(fits.HDUList([primary_hdu])[0])
     
     return hdulist
+
+def find_absorption_lines(wavelength, flux, d_range = 2, window_length=15, polyorder=1, end_buffer = 50):
+    """
+    Find approximate local minima (absorption lines) via a derivative-based approach.
+    
+    Parameters
+    ----------
+    wavelength : array-like
+        Wavelength values in ascending order (e.g., Angstrom).
+    flux : array-like
+        Measured intensity values corresponding to each wavelength.
+    window_length : int, optional
+        Window size for Savitzky-Golay smoothing.
+    polyorder : int, optional
+        Polynomial order for Savitzky-Golay smoothing.
+        
+    Returns
+    -------
+    minima_indices : list of int
+        Indices of flux array where local minima are found.
+    minima_waves : list of float
+        Wavelength values corresponding to those minima.
+    """
+    
+    # 1. (Optional) Smooth the flux to reduce noise
+    #    Adjust window_length & polyorder based on your data's resolution and SNR.
+    flux_smooth = savgol_filter(flux, window_length=window_length, polyorder=polyorder)
+    
+    # 2. Compute the first derivative with respect to wavelength.
+    #    np.gradient() automatically approximates derivative from discrete data
+    dflux = np.gradient(flux_smooth, wavelength)
+    
+    # 3. (Optional) compute the second derivative to confirm concavity
+    d2flux = np.gradient(dflux, wavelength)
+    
+    minima_indices = []
+    
+    # 4. Identify zero-crossings of dFlux (neg -> pos) and concavity (2nd deriv > 0)
+    for i in range(1 + d_range + end_buffer, len(dflux) - d_range - end_buffer):
+        # Check if the derivative has gone from negative to positive
+        if all(dflux[i-1-d_range:i-1] < 0) and all(dflux[i:i+d_range] > 0):
+            # Optional check: second derivative > 0 => local minimum
+            # Otherwise, skip if you only want sign change
+            if d2flux[i] > 0:
+                minima_indices.append(i)
+    
+    # Convert indices to wavelength
+    minima_waves = wavelength[minima_indices]
+    
+    return minima_indices, minima_waves
