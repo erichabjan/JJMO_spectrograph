@@ -2,7 +2,7 @@ import numpy as np
 from astropy.io import fits
 from scipy.signal import savgol_filter
 
-### Define Absorption and Telluric transtions
+### Define Absorption and Telluric transtions 
 
 balmer_lines = np.array([
     6562.8,  # Hα
