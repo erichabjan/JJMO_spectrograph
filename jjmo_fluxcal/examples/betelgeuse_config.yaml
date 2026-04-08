@@ -1,0 +1,51 @@
+# Example configuration: Betelgeuse observations from JJMO
+# ----------------------------------------------------------
+# Betelgeuse (alpha Ori, M2Iab) is a cool red supergiant.
+# 7 segments covering 4400-7900 A as CSV files.
+# No CALSPEC spectrum is available; PHOENIX model atmosphere is used.
+#
+# Usage:
+#   jjmo-fluxcal run --input-dir /path/to/Betelgeuse --config betelgeuse_config.yaml
+
+star_name: betelgeuse
+
+# File format
+file_format: csv
+
+# Observing conditions
+airmass: 1.2
+exptime: null
+
+# Wavelength calibration
+min_depth_sigma: 2.5   # Lower threshold — Betelgeuse has dense absorption
+line_match_tolerance: 50.0
+
+# Quality assessment
+edge_trim_frac: 0.20
+cosmic_sigma: 5.0
+
+# Stitching
+normalize_segments: true
+norm_method: median_ratio
+
+# Reference spectrum
+prefer_reference: phoenix   # No CALSPEC spectrum for Betelgeuse
+ebv: 0.15                   # E(B-V) from Harper et al. 2008
+rv: 3.1
+extinction_law: odonnell
+atmospheric_extinction: kpno
+
+# Sensitivity function
+fit_method: chebyshev
+fit_order: 3               # Lower order — fewer clean continuum regions
+sigma_clip: 2.5            # More aggressive clipping for molecular bands
+n_clip_iterations: 4
+mask_balmer: true
+mask_telluric: true
+mask_metals: true
+balmer_half_width: 15.0
+metal_half_width: 5.0
+
+# Output
+output_format: fits
+log_level: INFO

@@ -1,0 +1,67 @@
+# JJMO Flux Calibration Pipeline — Standard Star Parameters
+#
+# Sources:
+#   Sirius: Liebert et al. 2005 (Teff=9940, logg=4.33), Bohlin 2014 CALSPEC
+#   Vega: Bohlin 2014, Castelli & Kurucz 2004
+#   Betelgeuse: Levesque et al. 2005, Harper et al. 2008
+#   WD standards: Bohlin et al. 2014, 2020 CALSPEC documentation
+
+sirius:
+  teff: 9940
+  logg: 4.33
+  feh: 0.5
+  ebv: 0.0
+  calspec_file: sirius_stis_001.fits
+  spectral_type: A1V
+  aliases: [alpha_cma, "alpha cma", "hd 48915", "hr 2491"]
+  notes: "Primary CALSPEC standard, Teff/logg from Liebert+2005"
+
+vega:
+  teff: 9550
+  logg: 3.95
+  feh: -0.5
+  ebv: 0.0
+  calspec_file: alpha_lyr_stis_011.fits
+  spectral_type: A0V
+  aliases: [alpha_lyr, "alpha lyr", "hd 172167", "hr 7001"]
+  notes: "Fundamental CALSPEC standard, Bohlin+2014"
+
+betelgeuse:
+  teff: 3600
+  logg: 0.0
+  feh: 0.0
+  ebv: 0.15
+  calspec_file: null
+  spectral_type: M2Iab
+  aliases: [alpha_ori, "alpha ori", "hd 39801", "hr 2061"]
+  notes: "Variable M supergiant; no CALSPEC spectrum, use PHOENIX model"
+
+g191-b2b:
+  teff: 61190
+  logg: 7.49
+  feh: 0.0
+  ebv: 0.0
+  calspec_file: g191b2b_stisnic_007.fits
+  spectral_type: DA0
+  aliases: ["g191b2b", "g191-b2b"]
+  notes: "Hot DA white dwarf, primary CALSPEC flux standard"
+
+gd153:
+  teff: 39800
+  logg: 7.77
+  feh: 0.0
+  ebv: 0.0
+  calspec_file: gd153_stisnic_007.fits
+  spectral_type: DA1
+  aliases: []
+  notes: "Hot DA white dwarf, primary CALSPEC standard"
+
+bd+28d4211:
+  teff: 82000
+  logg: 6.2
+  feh: 0.0
+  ebv: 0.0
+  calspec_file: bd_28d4211_stis_003.fits
+  spectral_type: Op
+  aliases: ["bd+28 4211", "bd+28d4211"]
+  notes: "Hot subdwarf O, CALSPEC standard"

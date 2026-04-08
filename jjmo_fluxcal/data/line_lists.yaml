@@ -1,0 +1,36 @@
+# JJMO Flux Calibration Pipeline — Spectral Line Lists
+# All wavelengths in air, Angstroms.
+
+balmer_lines:
+  H-alpha: 6562.8
+  H-beta:  4861.3
+  H-gamma: 4340.5
+  H-delta: 4101.7
+  H-eps:   3970.1
+  H-zeta:  3889.1
+  H-eta:   3835.4
+
+metal_lines:
+  Ca II K:    3933.7
+  Ca II H:    3968.5
+  Mg II:      4481.2
+  Fe I 4384:  4383.6
+  Fe II 4924: 4923.9
+  Fe II 5018: 5018.4
+  Fe II 5169: 5169.0
+  Si III:     4552.6
+  Sr II:      4077.7
+
+telluric_lines:
+  O2 6277:        6277.0
+  O2 B-band 6867: 6867.0
+  H2O 7186:       7186.0
+  O2 A-band 7620: 7620.0
+
+# Telluric absorption bands: [lower, upper] in Angstroms
+telluric_bands:
+  - [6270.0, 6290.0]   # O2 near 6280 A
+  - [6860.0, 6880.0]   # O2 B-band
+  - [7150.0, 7300.0]   # H2O band
+  - [7590.0, 7650.0]   # O2 A-band (deep)
+  - [8100.0, 8400.0]   # H2O far red

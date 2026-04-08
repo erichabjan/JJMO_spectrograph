@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jjmo-fluxcal"
+version = "0.1.0"
+description = "Flux calibration pipeline for noisy, segmented spectra from small observatory spectrographs"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    {name = "JJMO Pipeline Team"},
+]
+keywords = [
+    "astronomy",
+    "spectroscopy",
+    "flux calibration",
+    "spectrograph",
+    "JJMO",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.7",
+    "astropy>=5.0",
+    "specutils>=1.9",
+    "pyyaml>=5.4",
+]
+
+[project.optional-dependencies]
+full = [
+    "spectres>=2.2",
+    "specreduce>=1.3",
+    "synphot>=1.1",
+    "expecto>=0.1",
+    "extinction>=0.4",
+    "dust_extinction>=1.1",
+    "matplotlib>=3.5",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+jjmo-fluxcal = "jjmo_fluxcal.cli:main"
+
+[project.urls]
+Repository = "https://github.com/JJMO-pipeline/jjmo-fluxcal"
+
+[tool.setuptools.packages.find]
+include = ["jjmo_fluxcal*"]
+
+[tool.setuptools.package-data]
+jjmo_fluxcal = ["data/*.yaml", "data/extinction/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "network: tests that require network access (CALSPEC/expecto downloads)",
+]
