@@ -1,0 +1,97 @@
+========================================================================
+JJMO Pipeline Validation Summary
+========================================================================
+
+--- Sirius self-consistency (10.1) ---
+  RMS residual:    0.2043
+  Median residual: 0.0250
+  Max residual:    1.4565
+  Mean residual:   0.0291
+  Valid pixels:    3509/3510
+
+--- Sirius sens -> Betelgeuse (10.2) ---
+  RMS residual:    1.0000
+  Median residual: 1.0000
+  Max residual:    1.0000
+  Mean residual:   -1.0000
+  Valid pixels:    3572/3574
+
+--- Betelgeuse sens -> Sirius (10.3) ---
+  RMS residual:    633757593385194.8750
+  Median residual: 213145087715006.1250
+  Max residual:    1914501939082692.0000
+  Mean residual:   430415362555080.5000
+  Valid pixels:    3017/3018
+
+--- 10.9_literature ---
+  calspec: ValidationResult(label='sirius vs calspec', wavelength=array([3285.84202749, 3287.10405498, 3288.36608247, ..., 7710.51041237,
+       7711.77243986, 7713.03446735], shape=(3509,)), flux_calibrated=array([1.30181994e-09, 2.03877771e-09, 2.72980224e-09, ...,
+       4.72955958e-09, 4.70277104e-09, 4.54610658e-09], shape=(3509,)), flux_reference=array([1.46245217e-08, 1.45703256e-08, 1.45161295e-08, ...,
+       4.83924801e-09, 4.83413244e-09, 4.82901687e-09], shape=(3509,)), residual_frac=array([-0.91098376, -0.86007329, -0.81194696, ..., -0.02266642,
+       -0.02717373, -0.05858548], shape=(3509,)), mask=array([False, False, False, ..., False, False, False], shape=(3509,)), rms_residual=0.2043220871744358, median_residual=0.02501513155889566, max_residual=1.456537380221355, mean_residual=0.029053115736229103, params={}, meta={})
+  phoenix: ValidationResult(label='sirius vs phoenix', wavelength=array([3285.84202749, 3287.10405498, 3288.36608247, ..., 7710.51041237,
+       7711.77243986, 7713.03446735], shape=(3509,)), flux_calibrated=array([1.30181994e-09, 2.03877771e-09, 2.72980224e-09, ...,
+       4.72955958e-09, 4.70277104e-09, 4.54610658e-09], shape=(3509,)), flux_reference=array([79537839.0150547 , 79328321.24697013, 79461922.79611914, ...,
+       22629563.00236712, 18719037.83954229, 22605957.55907476],
+      shape=(3509,)), residual_frac=array([-1., -1., -1., ..., -1., -1., -1.], shape=(3509,)), mask=array([False, False, False, ..., False, False, False], shape=(3509,)), rms_residual=0.9999999999999999, median_residual=0.9999999999999998, max_residual=1.0, mean_residual=-0.9999999999999999, params={}, meta={})
+
+--- 10.5_param_sensitivity ---
+  fit_order: ParameterSensitivityResult(parameter_name='fit_order', parameter_values=[3, 5, 7, 9], rms_residuals=[0.29346256013280014, 0.2043220871744358, 0.1838004868009277, 0.1621533125361957], median_residuals=[0.06656550457192725, 0.02501513155889566, 0.021589848094971338, 0.018918273973384706], max_residuals=[1.8310313345399303, 1.456537380221355, 1.429421958762764, 1.4415332795942664], baseline_rms=0.2043220871744358, results=[ValidationResult(label='fit_order=3', wavelength=array([3280.79      , 3282.05202749, 3283.31405498, ..., 7710.50649485,
+       7711.76852234, 7713.03054983], shape=(3513,)), flux_calibrated=array([           nan, 4.10005553e-08, 4.05573275e-08, ...,
+       3.45454034e-09, 3.40723807e-09, 3.26661821e-09], shape=(3513,)), flux_reference=array([1.43672598e-08, 1.44825509e-08, 1.45730334e-08, ...,
+       4.83926389e-09, 4.83414832e-09, 4.82903275e-09], shape=(3513,)), residual_frac=array([        nan,  1.83103133,  1.78303949, ..., -0.28614343,
+       -0.29517304, -0.32354607], shape=(3513,)), mask=array([ True, False, False, ..., False, False, False], shape=(3513,)), rms_residual=0.29346256013280014, median_residual=0.06656550457192725, max_residual=1.8310313345399303, mean_residual=-0.021084212102585213, params={'fit_method': 'chebyshev', 'fit_order': 3, 'sigma_clip': 3.0, 'balmer_width': 15.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={}), ValidationResult(label='fit_order=5', wavelength=array([3284.58      , 3285.84202749, 3287.10405498, ..., 7710.51041237,
+       7711.77243986, 7713.03446735], shape=(3510,)), flux_calibrated=array([           nan, 1.30181994e-09, 2.03877771e-09, ...,
+       4.72955958e-09, 4.70277104e-09, 4.54610658e-09], shape=(3510,)), flux_reference=array([1.46039042e-08, 1.46245217e-08, 1.45703256e-08, ...,
+       4.83924801e-09, 4.83413244e-09, 4.82901687e-09], shape=(3510,)), residual_frac=array([        nan, -0.91098376, -0.86007329, ..., -0.02266642,
+       -0.02717373, -0.05858548], shape=(3510,)), mask=array([ True, False, False, ..., False, False, False], shape=(3510,)), rms_residual=0.2043220871744358, median_residual=0.02501513155889566, max_residual=1.456537380221355, mean_residual=0.029053115736229103, params={'fit_method': 'chebyshev', 'fit_order': 5, 'sigma_clip': 3.0, 'balmer_width': 15.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={}), ValidationResult(label='fit_order=7', wavelength=array([3280.79      , 3282.05202749, 3283.31405498, ..., 7710.50649485,
+       7711.76852234, 7713.03054983], shape=(3513,)), flux_calibrated=array([           nan, 2.35383815e-08, 2.27891322e-08, ...,
+       5.12207384e-09, 5.13893212e-09, 5.01078848e-09], shape=(3513,)), flux_reference=array([1.43672598e-08, 1.44825509e-08, 1.45730334e-08, ...,
+       4.83926389e-09, 4.83414832e-09, 4.82903275e-09], shape=(3513,)), residual_frac=array([       nan, 0.62529252, 0.56378782, ..., 0.0584407 , 0.06304809,
+       0.03763812], shape=(3513,)), mask=array([ True, False, False, ..., False, False, False], shape=(3513,)), rms_residual=0.1838004868009277, median_residual=0.021589848094971338, max_residual=1.429421958762764, mean_residual=0.030249770351435258, params={'fit_method': 'chebyshev', 'fit_order': 7, 'sigma_clip': 3.0, 'balmer_width': 15.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={}), ValidationResult(label='fit_order=9', wavelength=array([3280.79      , 3282.05202749, 3283.31405498, ..., 7710.50649485,
+       7711.76852234, 7713.03054983], shape=(3513,)), flux_calibrated=array([           nan, 1.19059747e-08, 1.22464903e-08, ...,
+       5.08026043e-09, 5.13238320e-09, 5.04086401e-09], shape=(3513,)), flux_reference=array([1.43672598e-08, 1.44825509e-08, 1.45730334e-08, ...,
+       4.83926389e-09, 4.83414832e-09, 4.82903275e-09], shape=(3513,)), residual_frac=array([        nan, -0.177909  , -0.15964714, ...,  0.04980025,
+        0.06169337,  0.04386619], shape=(3513,)), mask=array([ True, False, False, ..., False, False, False], shape=(3513,)), rms_residual=0.1621533125361957, median_residual=0.018918273973384706, max_residual=1.4415332795942664, mean_residual=0.025125907902254486, params={'fit_method': 'chebyshev', 'fit_order': 9, 'sigma_clip': 3.0, 'balmer_width': 15.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={})])
+  balmer_width: ParameterSensitivityResult(parameter_name='balmer_width', parameter_values=[5.0, 10.0, 15.0, 20.0], rms_residuals=[0.19679888440674195, 0.2039860229679887, 0.2043220871744358, 0.20442989231755224], median_residuals=[0.025582122636100612, 0.025612319740136773, 0.02501513155889566, 0.02442418940866706], max_residuals=[1.457594408867253, 1.4604541291767885, 1.456537380221355, 1.4761885099295506], baseline_rms=0.2043220871744358, results=[ValidationResult(label='balmer_width=5.0', wavelength=array([3282.05      , 3283.31202749, 3284.57405498, ..., 7710.50446735,
+       7711.76649485, 7713.02852234], shape=(3512,)), flux_calibrated=array([2.82116015e-10, 9.88600542e-10, 1.66594744e-09, ...,
+       4.74552351e-09, 4.72036031e-09, 4.56253615e-09], shape=(3512,)), flux_reference=array([1.44823656e-08, 1.45729840e-08, 1.46037592e-08, ...,
+       4.83927211e-09, 4.83415654e-09, 4.82904097e-09], shape=(3512,)), residual_frac=array([-0.98052003, -0.93216211, -0.88592338, ..., -0.01937246,
+       -0.02354004, -0.05518794], shape=(3512,)), mask=array([False, False, False, ..., False, False, False], shape=(3512,)), rms_residual=0.19679888440674195, median_residual=0.025582122636100612, max_residual=1.457594408867253, mean_residual=0.02735597510445752, params={'fit_method': 'chebyshev', 'fit_order': 5, 'sigma_clip': 3.0, 'balmer_width': 5.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={}), ValidationResult(label='balmer_width=10.0', wavelength=array([3283.32      , 3284.58202749, 3285.84405498, ..., 7710.51243986,
+       7711.77446735, 7713.03649485], shape=(3511,)), flux_calibrated=array([           nan, 1.08154832e-09, 1.77923503e-09, ...,
+       4.73096045e-09, 4.70358076e-09, 4.54708436e-09], shape=(3511,)), flux_reference=array([1.45731784e-08, 1.46039536e-08, 1.46244346e-08, ...,
+       4.83923979e-09, 4.83412422e-09, 4.82900866e-09], shape=(3511,)), residual_frac=array([        nan, -0.9259414 , -0.8783382 , ..., -0.02237528,
+       -0.02700457, -0.0583814 ], shape=(3511,)), mask=array([ True, False, False, ..., False, False, False], shape=(3511,)), rms_residual=0.2039860229679887, median_residual=0.025612319740136773, max_residual=1.4604541291767885, mean_residual=0.029498295856555362, params={'fit_method': 'chebyshev', 'fit_order': 5, 'sigma_clip': 3.0, 'balmer_width': 10.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={}), ValidationResult(label='balmer_width=15.0', wavelength=array([3284.58      , 3285.84202749, 3287.10405498, ..., 7710.51041237,
+       7711.77243986, 7713.03446735], shape=(3510,)), flux_calibrated=array([           nan, 1.30181994e-09, 2.03877771e-09, ...,
+       4.72955958e-09, 4.70277104e-09, 4.54610658e-09], shape=(3510,)), flux_reference=array([1.46039042e-08, 1.46245217e-08, 1.45703256e-08, ...,
+       4.83924801e-09, 4.83413244e-09, 4.82901687e-09], shape=(3510,)), residual_frac=array([        nan, -0.91098376, -0.86007329, ..., -0.02266642,
+       -0.02717373, -0.05858548], shape=(3510,)), mask=array([ True, False, False, ..., False, False, False], shape=(3510,)), rms_residual=0.2043220871744358, median_residual=0.02501513155889566, max_residual=1.456537380221355, mean_residual=0.029053115736229103, params={'fit_method': 'chebyshev', 'fit_order': 5, 'sigma_clip': 3.0, 'balmer_width': 15.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={}), ValidationResult(label='balmer_width=20.0', wavelength=array([3283.32      , 3284.58202749, 3285.84405498, ..., 7710.51243986,
+       7711.77446735, 7713.03649485], shape=(3511,)), flux_calibrated=array([           nan, 1.00652443e-09, 1.71012433e-09, ...,
+       4.73753256e-09, 4.71011484e-09, 4.55340103e-09], shape=(3511,)), flux_reference=array([1.45731784e-08, 1.46039536e-08, 1.46244346e-08, ...,
+       4.83923979e-09, 4.83412422e-09, 4.82900866e-09], shape=(3511,)), residual_frac=array([        nan, -0.93107863, -0.8830639 , ..., -0.02101719,
+       -0.02565292, -0.05707333], shape=(3511,)), mask=array([ True, False, False, ..., False, False, False], shape=(3511,)), rms_residual=0.20442989231755224, median_residual=0.02442418940866706, max_residual=1.4761885099295506, mean_residual=0.0309545017730072, params={'fit_method': 'chebyshev', 'fit_order': 5, 'sigma_clip': 3.0, 'balmer_width': 20.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={})])
+  sigma_clip: ParameterSensitivityResult(parameter_name='sigma_clip', parameter_values=[2.0, 3.0, 5.0], rms_residuals=[0.19956626755976997, 0.2043220871744358, 0.2118270134516557], median_residuals=[0.024563759775763954, 0.02501513155889566, 0.03155829934834981], max_residuals=[1.4881765060639118, 1.456537380221355, 1.4547173298609744], baseline_rms=0.2043220871744358, results=[ValidationResult(label='sigma_clip=2.0', wavelength=array([3280.79      , 3282.05202749, 3283.31405498, ..., 7710.50649485,
+       7711.76852234, 7713.03054983], shape=(3513,)), flux_calibrated=array([           nan, 6.61667836e-09, 7.07851208e-09, ...,
+       4.34026733e-09, 4.30541911e-09, 4.15091719e-09], shape=(3513,)), flux_reference=array([1.43672598e-08, 1.44825509e-08, 1.45730334e-08, ...,
+       4.83926389e-09, 4.83414832e-09, 4.82903275e-09], shape=(3513,)), residual_frac=array([        nan, -0.54312756, -0.51427326, ..., -0.10311415,
+       -0.10937381, -0.14042472], shape=(3513,)), mask=array([ True, False, False, ..., False, False, False], shape=(3513,)), rms_residual=0.19956626755976997, median_residual=0.024563759775763954, max_residual=1.4881765060639118, mean_residual=0.027665884048524728, params={'fit_method': 'chebyshev', 'fit_order': 5, 'sigma_clip': 2.0, 'balmer_width': 15.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={}), ValidationResult(label='sigma_clip=3.0', wavelength=array([3284.58      , 3285.84202749, 3287.10405498, ..., 7710.51041237,
+       7711.77243986, 7713.03446735], shape=(3510,)), flux_calibrated=array([           nan, 1.30181994e-09, 2.03877771e-09, ...,
+       4.72955958e-09, 4.70277104e-09, 4.54610658e-09], shape=(3510,)), flux_reference=array([1.46039042e-08, 1.46245217e-08, 1.45703256e-08, ...,
+       4.83924801e-09, 4.83413244e-09, 4.82901687e-09], shape=(3510,)), residual_frac=array([        nan, -0.91098376, -0.86007329, ..., -0.02266642,
+       -0.02717373, -0.05858548], shape=(3510,)), mask=array([ True, False, False, ..., False, False, False], shape=(3510,)), rms_residual=0.2043220871744358, median_residual=0.02501513155889566, max_residual=1.456537380221355, mean_residual=0.029053115736229103, params={'fit_method': 'chebyshev', 'fit_order': 5, 'sigma_clip': 3.0, 'balmer_width': 15.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={}), ValidationResult(label='sigma_clip=5.0', wavelength=array([3285.84      , 3287.10202749, 3288.36405498, ..., 7710.50838488,
+       7711.77041237, 7713.03243986], shape=(3509,)), flux_calibrated=array([3.85949310e-10, 1.17249914e-09, 1.92358291e-09, ...,
+       5.81276395e-09, 5.86616919e-09, 5.75226508e-09], shape=(3509,)), flux_reference=array([1.46246088e-08, 1.45704127e-08, 1.45162166e-08, ...,
+       4.83925623e-09, 4.83414066e-09, 4.82902509e-09], shape=(3509,)), residual_frac=array([-0.9736096 , -0.91952876, -0.86748731, ...,  0.20116887,
+        0.21348748,  0.19118559], shape=(3509,)), mask=array([False, False, False, ..., False, False, False], shape=(3509,)), rms_residual=0.2118270134516557, median_residual=0.03155829934834981, max_residual=1.4547173298609744, mean_residual=0.027720380336960882, params={'fit_method': 'chebyshev', 'fit_order': 5, 'sigma_clip': 5.0, 'balmer_width': 15.0, 'metal_width': 5.0, 'edge_threshold': 0.2, 'cosmic_sigma': 5.0, 'rv': 3.1, 'extinction_law': 'odonnell94'}, meta={})])
+
+--- SNR Degradation Study ---
+  Threshold SNR (<10% RMS): nan
+  SNR~658.1: RMS=0.2043
+  SNR~524.9: RMS=0.2013
+  SNR~343.1: RMS=0.2032
+  SNR~202.7: RMS=0.2000
+  SNR~89.4: RMS=0.2252
+  SNR~49.0: RMS=0.2774
+  SNR~25.8: RMS=0.4541
+
+========================================================================
