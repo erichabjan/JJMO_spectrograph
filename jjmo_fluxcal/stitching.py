@@ -24,7 +24,10 @@ from scipy.ndimage import median_filter
 try:
     from astropy import units as u
     from astropy.nddata import StdDevUncertainty
-    from specutils import Spectrum1D
+    try:
+        from specutils import Spectrum as Spectrum1D  # specutils >= 2.3
+    except ImportError:
+        from specutils import Spectrum1D  # specutils < 2.3
     HAS_SPECUTILS = True
 except ImportError:
     HAS_SPECUTILS = False

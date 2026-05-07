@@ -29,27 +29,27 @@ import numpy as np
 from scipy.interpolate import interp1d
 
 # Pipeline module imports
-from stitching import (
+from jjmo_fluxcal.stitching import (
     load_jjmo_sirius,
     load_jjmo_betelgeuse,
     stitch_segments,
     find_overlaps,
     StitchResult,
 )
-from quality import assess_segments
-from sensitivity import (
+from jjmo_fluxcal.quality import assess_segments
+from jjmo_fluxcal.sensitivity import (
     derive_sensitivity,
     GlobalSensitivity,
     build_sensitivity_mask,
 )
-from calibrate import (
+from jjmo_fluxcal.calibrate import (
     SensitivityFunction,
     CalibrationResult,
     apply_sensitivity,
     self_calibration_check,
     SelfCalibrationReport,
 )
-from reference import (
+from jjmo_fluxcal.reference import (
     load_reference_spectrum,
     prepare_reference,
     get_stellar_parameters,

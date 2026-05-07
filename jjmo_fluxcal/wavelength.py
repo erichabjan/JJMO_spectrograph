@@ -995,7 +995,7 @@ def print_calibration_table(solutions):
         off_str = f"{s['inst_offset_A']:+.2f}" if np.isfinite(s['inst_offset_A']) else '   N/A'
         rv_str = f"{s['rv_kms']:+.1f}" if np.isfinite(s['rv_kms']) else '    N/A'
         rms_str = f"{s['rms_residual_A']:.3f}" if np.isfinite(s['rms_residual_A']) else '  N/A'
-        print(f"{s['segment_id']:3d}  "
+        print(f"{str(s['segment_id']):>3s}  "
               f"{s['wave_min']:8.1f}-{s['wave_max']:8.1f}  "
               f"{s['n_detected']:3d}  {s['n_matched']:3d}  "
               f"{off_str:>10s}  {rv_str:>10s}  {rms_str:>8s}  "

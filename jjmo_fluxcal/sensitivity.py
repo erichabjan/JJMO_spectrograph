@@ -766,6 +766,51 @@ class GlobalSensitivity:
             metadata=d.get('metadata', {}),
         )
 
+    def to_sensitivity_function(self, wavelength_grid=None, meta=None):
+        """Return a ``calibrate.SensitivityFunction`` ready for ``apply_sensitivity``.
+
+        ``GlobalSensitivity`` stores S = F_ref / C_obs (flux per count), but
+        ``calibrate.apply_sensitivity`` expects the inverse convention
+        S' = C_obs / F_ref (counts per unit flux). This method evaluates
+        ``self`` on a grid, takes the reciprocal, and wraps the result.
+
+        Parameters
+        ----------
+        wavelength_grid : array-like, optional
+            Wavelengths at which to sample. Defaults to 2000 points spanning
+            ``[wave_min, wave_max]``.
+        meta : dict, optional
+            Metadata to attach to the returned ``SensitivityFunction``.
+
+        Returns
+        -------
+        calibrate.SensitivityFunction
+        """
+        from jjmo_fluxcal.calibrate import SensitivityFunction
+
+        if wavelength_grid is None:
+            wavelength_grid = np.linspace(self.wave_min, self.wave_max, 2000)
+        wave = np.asarray(wavelength_grid, dtype=np.float64)
+
+        s_global = self(wave)
+        with np.errstate(divide='ignore', invalid='ignore'):
+            sens_inv = np.where((s_global > 0) & np.isfinite(s_global),
+                                1.0 / s_global, np.nan)
+
+        out_meta = {'approach': self.approach,
+                    'wave_min': self.wave_min,
+                    'wave_max': self.wave_max}
+        out_meta.update(self.metadata or {})
+        if meta:
+            out_meta.update(meta)
+
+        return SensitivityFunction(
+            wavelength=wave,
+            sensitivity=sens_inv,
+            uncertainty=None,
+            meta=out_meta,
+        )
+
 
 def combine_segment_sensitivities(
     segment_fits: List[SensitivityFit],
